@@ -1,0 +1,6 @@
+{
+  "browsers": ["chrome","edge","firefox"],
+  "url": "https://www.google.com",
+  "run_type": "remote",
+  "grid_url": "http://localhost:4444/wd/hub"
+}

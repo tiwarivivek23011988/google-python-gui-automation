@@ -1,0 +1,19 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+
+exporters:
+  logging:
+    loglevel: debug
+  otlp:
+    endpoint: "otel-collector:4317"  # Change this if you're exporting to a different endpoint
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [logging, otlp]
+    metrics:
+      receivers: [otlp]
+      exporters: [logging, otlp]

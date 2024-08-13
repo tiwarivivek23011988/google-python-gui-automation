@@ -1,0 +1,7 @@
+selenium
+psutil
+pytest
+pytest-cov
+pytest-xdist
+allure-pytest
+selenium-page-factory

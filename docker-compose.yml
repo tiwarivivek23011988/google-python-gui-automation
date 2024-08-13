@@ -1,0 +1,120 @@
+services:
+  selenium-hub:
+    image: selenium/hub:latest
+    container_name: selenium-hub
+    ports:
+      - "4444:4444" # Selenium Grid
+      - "4442:4442" # Event bus (XPUB)
+      - "4443:4443" # Event bus (XSUB)
+    networks:
+      - selenium-network
+    environment:
+      - SE_OTEL_JAVA_GLOBAL_AUTOCONFIGURE_ENABLED=true
+      - SE_OTEL_TRACES_EXPORTER=otlp
+      - SE_OTEL_OTLP_ENDPOINT=http://otel-collector:4317
+
+  selenium-node-chrome:
+    image: selenium/node-chrome:latest
+    container_name: selenium-node-chrome
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_OTEL_OTLP_ENDPOINT=http://otel-collector:4317
+    ports:
+      - "5555:5555" # Port for Chrome node
+    networks:
+      - selenium-network
+    restart: unless-stopped
+
+  selenium-node-firefox:
+    image: selenium/node-firefox:latest
+    container_name: selenium-node-firefox
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_OTEL_OTLP_ENDPOINT=http://otel-collector:4317
+    ports:
+      - "5556:5556" # Port for Firefox node
+    networks:
+      - selenium-network
+    restart: unless-stopped
+
+  selenium-node-edge:
+    image: selenium/node-edge:latest
+    container_name: selenium-node-edge
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_OTEL_OTLP_ENDPOINT=http://otel-collector:4317
+    ports:
+      - "5557:5557" # Port for Edge node
+    networks:
+      - selenium-network
+    restart: unless-stopped
+
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: test-runner
+    depends_on:
+      - selenium-hub
+    environment:
+      - SELENIUM_GRID_URL=http://selenium-hub:4444/wd/hub
+      - CHROME_NODE_URL=http://selenium-node-chrome:5555/wd/hub
+      - FIREFOX_NODE_URL=http://selenium-node-firefox:5556/wd/hub
+      - EDGE_NODE_URL=http://selenium-node-edge:5557/wd/hub
+    volumes:
+      - .:/usr/src/app/
+      - ./allure-report:/usr/src/app/reports
+      - ./allure-results:/usr/src/app/allure-results
+    working_dir: /usr/src/app
+    networks:
+      - selenium-network
+    command: >
+      bash -c "
+        mkdir -p /usr/src/app/reports &&
+        pytest --alluredir=/usr/src/app/allure-results --cov=/usr/src/app/com --cov-report html:/usr/src/app/reports/coverage &&
+        allure generate /usr/src/app/allure-results -o /usr/src/app/reports/allure-report --clean
+        "
+
+  allure-serve:
+    image: python:3.12
+    container_name: allure-serve
+    depends_on:
+      - test-runner
+    volumes:
+      - ./reports/allure-report:/usr/src/app/allure-report
+    ports:
+      - "8080:80"
+    networks:
+      - selenium-network
+    command: >
+      bash -c "
+      cd /usr/src/app/allure-report && \
+      python3 -m http.server 80"
+
+  otel-collector:
+    image: otel/opentelemetry-collector:latest
+    container_name: otel-collector
+    networks:
+      - selenium-network
+    ports:
+      - "4317:4317" # OpenTelemetry port
+    volumes:
+      - ./otel-collector-config.yml:/etc/otel-collector-config.yml
+    command: [ "--config", "/etc/otel-collector-config.yml" ]
+
+networks:
+  selenium-network:
+    driver: bridge
+    enable_ipv6: false
