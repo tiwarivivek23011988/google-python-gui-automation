@@ -1,4 +1,3 @@
-import pytest
 from com.assignment.pages.google_page import GooglePage
 
 

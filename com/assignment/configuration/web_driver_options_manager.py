@@ -13,6 +13,7 @@ class WebDriverOptionsManager:
         if browser_name == 'chrome':
             chrome_options = ChromeOptions()
             chrome_options.accept_insecure_certs = True
+            chrome_options.set_capability("goog:loggingPrefs", {"performance": "ALL"})
             service = ChromeService()
             options = chrome_options
         elif browser_name == 'firefox':

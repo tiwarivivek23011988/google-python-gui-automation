@@ -123,6 +123,7 @@ def pytest_generate_tests(metafunc):
 
 @pytest.hookimpl(tryfirst=True)
 def pytest_configure(config):
+    set_logger()
     if execution_type == 'local':
         with delete_lock:
             # Access command-line options
@@ -144,3 +145,19 @@ def pytest_configure(config):
                     FileOperationsUtility.delete_directory(directory)
             else:
                 logger.warning(f'Allure directories are clean')
+
+def set_logger():
+    log_file_path = "../../../logs/execution_logs.log"
+    logging.basicConfig(
+        filename=log_file_path,
+        level=logging.DEBUG,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+        filemode="a",  # Append to the log file
+    )
+    logging.info("Starting pytest run")
+
+    # Optionally, add a console handler for real-time log visibility
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.DEBUG)
+    console_handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(message)s"))
+    logging.getLogger().addHandler(console_handler)

@@ -1,0 +1,46 @@
+2025-01-26 17:34:10,944 [INFO] Starting pytest run
+2025-01-26 17:34:10,944 [WARNING] Allure directory is not provided from command-line
+2025-01-26 17:34:10,968 [WARNING] Directories to be deleted are => []
+2025-01-26 17:34:10,969 [WARNING] Allure directories are clean
+2025-01-26 17:34:11,686 [INFO] Starting pytest run
+2025-01-26 17:34:11,686 [WARNING] Allure directory is not provided from command-line
+2025-01-26 17:34:11,721 [WARNING] Directories to be deleted are => []
+2025-01-26 17:34:11,722 [WARNING] Allure directories are clean
+2025-01-26 17:34:11,770 [INFO] Starting pytest run
+2025-01-26 17:34:11,770 [WARNING] Allure directory is not provided from command-line
+2025-01-26 17:34:11,801 [WARNING] Directories to be deleted are => []
+2025-01-26 17:34:11,801 [WARNING] Allure directories are clean
+2025-01-26 17:34:11,847 [INFO] Starting pytest run
+2025-01-26 17:34:11,847 [WARNING] Allure directory is not provided from command-line
+2025-01-26 17:34:11,878 [WARNING] Directories to be deleted are => []
+2025-01-26 17:34:11,879 [WARNING] Allure directories are clean
+2025-01-26 17:34:11,935 [INFO] Starting pytest run
+2025-01-26 17:34:11,935 [WARNING] Allure directory is not provided from command-line
+2025-01-26 17:34:11,965 [WARNING] Directories to be deleted are => []
+2025-01-26 17:34:11,965 [WARNING] Allure directories are clean
+2025-01-26 17:34:16,207 [INFO] Performance Metrics Are: NavigationStart -> 823538.089344 : DomContentLoaded -> 823538.658413 : FirstMeaningfulPaint -> 0 : url -> https://www.saucedemo.com/cart.html page load time : 0.5690690000774339
+2025-01-26 17:34:16,207 [INFO] Page Load Time (s): for cart url -> https://www.saucedemo.com/cart.html is', 0.08464574813842773
+2025-01-26 17:34:16,356 [INFO] Performance Metrics Are: NavigationStart -> 823538.089344 : DomContentLoaded -> 823538.658413 : FirstMeaningfulPaint -> 0 : url -> https://www.saucedemo.com/checkout-step-one.html page load time : 0.5690690000774339
+2025-01-26 17:34:16,356 [INFO] Page Load Time (s): for checkout-step-one url -> https://www.saucedemo.com/checkout-step-one.html is', 0.134354829788208
+2025-01-26 17:34:16,750 [INFO] Performance Metrics Are: NavigationStart -> 823538.089344 : DomContentLoaded -> 823538.658413 : FirstMeaningfulPaint -> 0 : url -> https://www.saucedemo.com/checkout-step-two.html page load time : 0.5690690000774339
+2025-01-26 17:34:16,750 [INFO] Page Load Time (s): for checkout-step-two page url -> https://www.saucedemo.com/checkout-step-two.html is', 0.38411641120910645
+2025-01-26 17:34:16,836 [INFO] Performance Metrics Are: NavigationStart -> 823538.089344 : DomContentLoaded -> 823538.658413 : FirstMeaningfulPaint -> 0 : url -> https://www.saucedemo.com/checkout-complete.html page load time : 0.5690690000774339
+2025-01-26 17:34:16,837 [INFO] Page Load Time (s): for checkout-complete url -> https://www.saucedemo.com/checkout-complete.html is', 0.0734870433807373
+2025-01-26 17:34:16,976 [INFO] Performance Metrics Are: NavigationStart -> 823538.089344 : DomContentLoaded -> 823538.658413 : FirstMeaningfulPaint -> 0 : url -> https://www.saucedemo.com/inventory.html page load time : 0.5690690000774339
+2025-01-26 17:34:16,976 [INFO] Page Load Time (s): for inventory url -> https://www.saucedemo.com/inventory.html is', 0.1275005340576172
+2025-01-26 17:34:20,104 [INFO] Performance Metrics Are: NavigationStart -> 823538.093615 : DomContentLoaded -> 823538.651915 : FirstMeaningfulPaint -> 0 : url -> https://www.saucedemo.com/cart.html page load time : 0.5583000000333413
+2025-01-26 17:34:20,104 [INFO] Page Load Time (s): for cart url -> https://www.saucedemo.com/cart.html is', 0.0769190788269043
+2025-01-26 17:34:20,199 [INFO] Performance Metrics Are: NavigationStart -> 823538.093615 : DomContentLoaded -> 823538.651915 : FirstMeaningfulPaint -> 0 : url -> https://www.saucedemo.com/checkout-step-one.html page load time : 0.5583000000333413
+2025-01-26 17:34:20,200 [INFO] Page Load Time (s): for checkout-step-one url -> https://www.saucedemo.com/checkout-step-one.html is', 0.0815742015838623
+2025-01-26 17:34:20,527 [INFO] Performance Metrics Are: NavigationStart -> 823538.093615 : DomContentLoaded -> 823538.651915 : FirstMeaningfulPaint -> 0 : url -> https://www.saucedemo.com/checkout-step-two.html page load time : 0.5583000000333413
+2025-01-26 17:34:20,527 [INFO] Page Load Time (s): for checkout-step-two page url -> https://www.saucedemo.com/checkout-step-two.html is', 0.31809401512145996
+2025-01-26 17:34:20,605 [INFO] Performance Metrics Are: NavigationStart -> 823538.093615 : DomContentLoaded -> 823538.651915 : FirstMeaningfulPaint -> 0 : url -> https://www.saucedemo.com/checkout-complete.html page load time : 0.5583000000333413
+2025-01-26 17:34:20,605 [INFO] Page Load Time (s): for checkout-complete url -> https://www.saucedemo.com/checkout-complete.html is', 0.07050085067749023
+2025-01-26 17:34:23,118 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001DDFA646490>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/d6c66d3e7053c208cee08f61389c6397
+2025-01-26 17:34:25,684 [INFO] Performance Metrics Are: NavigationStart -> 823538.093615 : DomContentLoaded -> 823538.651915 : FirstMeaningfulPaint -> 0 : url -> https://www.saucedemo.com/inventory.html page load time : 0.5583000000333413
+2025-01-26 17:34:25,684 [INFO] Page Load Time (s): for inventory url -> https://www.saucedemo.com/inventory.html is', 5.064881324768066
+2025-01-26 17:34:27,140 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001DDFA6465D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/d6c66d3e7053c208cee08f61389c6397
+2025-01-26 17:34:31,155 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001DDFA527490>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/d6c66d3e7053c208cee08f61389c6397
+2025-01-26 17:34:31,818 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016534AE6490>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/993883833b4a6a3c544b321107c1e9d5
+2025-01-26 17:34:35,847 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016534AE65D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/993883833b4a6a3c544b321107c1e9d5
+2025-01-26 17:34:39,862 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016534907490>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/993883833b4a6a3c544b321107c1e9d5

@@ -30,11 +30,11 @@ class CustomWebDriverManager:
         execution_type = json_data['run_type']
         if execution_type == 'local':
             if browser_name == 'chrome':
-                return webdriver.Chrome(service, options)
+                return webdriver.Chrome(options)
             elif browser_name == 'firefox':
-                return webdriver.Firefox(service, options)
+                return webdriver.Firefox(options)
             elif browser_name == 'edge':
-                return webdriver.Edge(service, options)
+                return webdriver.Edge(options)
         else:
             selenium_grid_url = os.getenv('SELENIUM_GRID_URL', json_data['grid_url'])
             return webdriver.Remote(command_executor=selenium_grid_url, options=options)
